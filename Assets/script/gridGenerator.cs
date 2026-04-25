@@ -28,11 +28,10 @@ public class gridGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // DeleteGrid();
-        // GenerateGrid();
+
     }
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
         // generate a grid
         for (int i = 0; i < gridSize.y; i++)
@@ -44,8 +43,11 @@ public class gridGenerator : MonoBehaviour
                 currGridCell.transform.position = new Vector3(j * spacing, i * -spacing, 0);
                 currGridCell.transform.localScale = new Vector3(spacing, spacing, 1);
                 currGridCell.name = $"gridCell-{i}-{j}-{gridCellArray.Count}";
-                currGridCell.GetComponent<gridCellScript>().value = 0;
-                currGridCell.GetComponent<gridCellScript>().covered = generateCovered;
+
+                gridCellScript script = currGridCell.GetComponent<gridCellScript>();
+
+                script.value = 0;
+                script.covered = generateCovered;
 
                 gridCellArray.Add(currGridCell);
 
@@ -79,13 +81,29 @@ public class gridGenerator : MonoBehaviour
             }
         }
 
+        // calculate all values and add lists
+        for (int i = 0; i < gridCellArray.Count; i++)
+        {
+            int id = UnityEngine.Random.Range(0, gridCellArray.Count);
+            gridCellScript script = gridCellArray[id].GetComponent<gridCellScript>();
+
+            script.gridCellArray = gridCellArray;
+
+            if (script.value != -1)
+            {
+                script.Start();
+                script.calculateValue();
+            }
+        }
     }
 
-    void DeleteGrid()
+    public void DeleteGrid()
     {
         foreach (Transform gridCell in grid.GetComponentInChildren<Transform>())
         {
             Destroy(gridCell.gameObject);
         }
+
+        gridCellArray = new List<GameObject> { };
     }
 }
