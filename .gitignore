@@ -1,0 +1,6 @@
+# keeping /Assets /Packages /ProjectSettings
+
+Library/*
+Logs/*
+Temp/*
+UserSettings/*
