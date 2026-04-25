@@ -114,11 +114,24 @@ public class gridGenerator : MonoBehaviour
 
     public void DeleteGrid()
     {
-        foreach (Transform gridCell in grid.GetComponentInChildren<Transform>())
+        for(int i = 0; i < gridCellArray.Count; i++)
         {
-            Destroy(gridCell.gameObject);
+            Destroy(gridCellArray[i].gameObject);
         }
 
         gridCellArray = new List<GameObject> { };
+    }
+
+    public void showAllBombs()
+    {
+        for (int i = 0; i < gridCellArray.Count; i++)
+        {
+            gridCellScript script = gridCellArray[i].GetComponent<gridCellScript>();
+            if (script.value == -1)
+            {
+                script.covered = false;
+                script.changeCellDisplayState();
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class minesweeperManager : MonoBehaviour
@@ -17,7 +18,11 @@ public class minesweeperManager : MonoBehaviour
         gridGeneratorScript = gridGenerator.GetComponent<gridGenerator>();
         gridCellArray = gridGeneratorScript.gridCellArray;
 
-        //gridGeneratorScript.GenerateGrid();
+        for(int i = 0; i < gridCellArray.Count; i++)
+        {
+            gridCellScript cellScript = gridCellArray[i].GetComponent<gridCellScript>();
+            cellScript.GameOver += GameOver;
+        }
     }
 
     // Update is called once per frame
@@ -34,5 +39,6 @@ public class minesweeperManager : MonoBehaviour
     void GameOver()
     {
         gameOverMenu.SetActive(true);
+        gridGeneratorScript.showAllBombs();
     }
 }

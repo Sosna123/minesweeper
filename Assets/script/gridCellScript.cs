@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.TestTools;
-using UnityEngine.Windows;
 
 public class gridCellScript : MonoBehaviour
 {
@@ -20,6 +18,11 @@ public class gridCellScript : MonoBehaviour
 
     public bool flagged = false;
     GameObject flag;
+
+    bool flaggedPrev = false;
+    bool coveredPrev = true;
+
+    public Action GameOver;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
@@ -44,12 +47,20 @@ public class gridCellScript : MonoBehaviour
         gridSize = gridGenerator.gridSize;
 
         flag.SetActive(flagged);
+
+        changeCellDisplayState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        changeCellDisplayState();
+        if (flaggedPrev != flagged || coveredPrev != covered)
+        {
+            changeCellDisplayState();
+        }
+
+        flaggedPrev = flagged;
+        coveredPrev = covered;
     }
 
     List<GameObject> getNearbyCells(int currentId)
@@ -142,7 +153,10 @@ public class gridCellScript : MonoBehaviour
 
         if (currentScript.value == -1)
         {
-            // lose?
+            if (GameOver != null)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -165,6 +179,8 @@ public class gridCellScript : MonoBehaviour
 
     public void changeCellDisplayState()
     {
+        print("changed");
+
         if (!covered)
         {
             gameObject.GetComponent<SpriteRenderer>().color = uncoveredColor;
