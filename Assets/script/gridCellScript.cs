@@ -21,8 +21,6 @@ public class gridCellScript : MonoBehaviour
     public bool flagged = false;
     GameObject flag;
 
-    bool calculated = false;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
@@ -51,11 +49,6 @@ public class gridCellScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!calculated & gridCellArray.Count == gridSize.x * gridSize.y)
-        {
-            calculated = true;
-            calculateValue();
-        }
         changeCellDisplayState();
     }
 
@@ -69,18 +62,24 @@ public class gridCellScript : MonoBehaviour
         // -1+W  +W  +1+W
 
         // left column
-        nearbyCellIds.Add(currentId - 1 - (int)gridSize.x);
-        nearbyCellIds.Add(currentId - 1);
-        nearbyCellIds.Add(currentId - 1 + (int)gridSize.x);
+        if (currentId % gridSize.x != 0)
+        {
+            nearbyCellIds.Add(currentId - 1 - (int)gridSize.x);
+            nearbyCellIds.Add(currentId - 1);
+            nearbyCellIds.Add(currentId - 1 + (int)gridSize.x);
+        }
 
         // middle column
         nearbyCellIds.Add(currentId - (int)gridSize.x);
         nearbyCellIds.Add(currentId + (int)gridSize.x);
 
         // right column
-        nearbyCellIds.Add(currentId + 1 - (int)gridSize.x);
-        nearbyCellIds.Add(currentId + 1);
-        nearbyCellIds.Add(currentId + 1 + (int)gridSize.x);
+        if (currentId % gridSize.x != gridSize.x - 1)
+        {
+            nearbyCellIds.Add(currentId + 1 - (int)gridSize.x);
+            nearbyCellIds.Add(currentId + 1);
+            nearbyCellIds.Add(currentId + 1 + (int)gridSize.x);
+        }
 
         for (int i = 0; i < nearbyCellIds.Count; i++)
         {
@@ -117,13 +116,14 @@ public class gridCellScript : MonoBehaviour
     public void uncoverAllNearbyCells(int currentId)
     {
         gridCellScript currentScript = gridCellArray[currentId].GetComponent<gridCellScript>();
-        currentScript.covered = false;
-        // currentScript.changeCellDisplayState();
 
         if (currentScript.flagged)
         {
             return;
         }
+
+        currentScript.covered = false;
+        // currentScript.changeCellDisplayState();
 
         if (currentScript.value == 0)
         {

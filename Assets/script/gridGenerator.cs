@@ -84,15 +84,30 @@ public class gridGenerator : MonoBehaviour
         // calculate all values and add lists
         for (int i = 0; i < gridCellArray.Count; i++)
         {
-            int id = UnityEngine.Random.Range(0, gridCellArray.Count);
-            gridCellScript script = gridCellArray[id].GetComponent<gridCellScript>();
+            gridCellScript script = gridCellArray[i].GetComponent<gridCellScript>();
 
             script.gridCellArray = gridCellArray;
+            script.Start();
 
             if (script.value != -1)
             {
-                script.Start();
                 script.calculateValue();
+            }
+        }
+
+        // uncover a start spot
+        bool searchingForStartSpot = true;
+
+        while(searchingForStartSpot)
+        {
+            int id = UnityEngine.Random.Range(0, gridCellArray.Count);
+            GameObject cell = gridCellArray[id];
+            gridCellScript script = cell.GetComponent<gridCellScript>();
+
+            if(script.value == 0)
+            {
+                script.uncoverAllNearbyCells(id);
+                searchingForStartSpot = false;
             }
         }
     }

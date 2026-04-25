@@ -34,8 +34,7 @@
               "RelativeToolTip": "Assets\\script\\minesweeperManager.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAmwBMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-25T19:51:12.436Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-25T19:51:12.436Z"
             },
             {
               "$type": "Document",
@@ -45,7 +44,7 @@
               "RelativeDocumentMoniker": "Assets\\script\\gridCellScript.cs",
               "ToolTip": "D:\\Programowanie\\Unity\\NoweProjekty\\minesweeper\\Assets\\script\\gridCellScript.cs",
               "RelativeToolTip": "Assets\\script\\gridCellScript.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCEAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwC0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-21T19:51:48.648Z",
               "EditorCaption": ""
@@ -60,8 +59,7 @@
               "RelativeToolTip": "Assets\\script\\gridGenerator.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAwwDEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T18:54:22.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-21T18:54:22.466Z"
             }
           ]
         }
