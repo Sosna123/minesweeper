@@ -33,6 +33,7 @@ public class minesweeperManager : MonoBehaviour
             gridGeneratorScript.DeleteGrid();
             gridGeneratorScript.GenerateGrid();
             gameOverMenu.SetActive(false);
+            Start();
         }
     }
 
@@ -40,5 +41,10 @@ public class minesweeperManager : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         gridGeneratorScript.showAllBombs();
+
+        for(int i = 0; i < gridCellArray.Count; i++)
+        {
+            gridCellArray[i].GetComponent<gridCellScript>().canClick = false;
+        }
     }
 }

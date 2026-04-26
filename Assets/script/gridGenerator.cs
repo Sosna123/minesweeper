@@ -10,6 +10,7 @@ public class gridGenerator : MonoBehaviour
     public Vector2 gridSize;
 
     public float spacing = 1;
+    public float borderSpacingRelative = .25f;
 
     int numOfBombs = 0;
     public float bombRatio = .2f;
@@ -22,6 +23,7 @@ public class gridGenerator : MonoBehaviour
     void Start()
     {
         numOfBombs = (int)(gridSize.x * gridSize.y * bombRatio);
+        borderSpacingRelative *= spacing;
         GenerateGrid();
     }
 
@@ -41,7 +43,7 @@ public class gridGenerator : MonoBehaviour
                 GameObject currGridCell = Instantiate(gridCell, parent: grid.transform);
 
                 currGridCell.transform.position = new Vector3(j * spacing, i * -spacing, 0);
-                currGridCell.transform.localScale = new Vector3(spacing, spacing, 1);
+                currGridCell.transform.localScale = new Vector3(spacing - borderSpacingRelative, spacing - borderSpacingRelative, 1);
                 currGridCell.name = $"gridCell-{i}-{j}-{gridCellArray.Count}";
 
                 gridCellScript script = currGridCell.GetComponent<gridCellScript>();

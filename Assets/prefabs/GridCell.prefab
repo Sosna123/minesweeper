@@ -83,7 +83,7 @@ MeshRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &710568639985627233
@@ -191,8 +191,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1953700272238699220}
   - component: {fileID: 5843929988780844349}
-  - component: {fileID: 4188303801147415944}
-  - component: {fileID: 5010277892789872270}
+  - component: {fileID: 7809209762425177876}
+  - component: {fileID: 939904208536144557}
   m_Layer: 0
   m_Name: GridCell
   m_TagString: Untagged
@@ -213,8 +213,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9002555574008308762}
   - {fileID: 9112591289215344779}
+  - {fileID: 9002555574008308762}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5843929988780844349
@@ -264,7 +264,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
@@ -276,7 +276,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4188303801147415944
+--- !u!114 &7809209762425177876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,7 +296,8 @@ MonoBehaviour:
   gridCellArray: []
   gridSize: {x: 0, y: 0}
   flagged: 0
---- !u!61 &5010277892789872270
+  canClick: 1
+--- !u!61 &939904208536144557
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,7 +422,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5154189640090123692, guid: 667fa91e348f497408be97cc2d2bd074, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

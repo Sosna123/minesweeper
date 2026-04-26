@@ -10,8 +10,8 @@ public class gridCellScript : MonoBehaviour
     public TextMeshPro valueText;
     public bool covered = true;
 
-    public Color coveredColor;
-    public Color uncoveredColor;
+    public Color coveredColor = new Color(164 / 255, 164 / 255, 164 / 255);
+    public Color uncoveredColor = new Color(89 / 255, 89 / 255, 89 / 255);
 
     public List<GameObject> gridCellArray = new List<GameObject> { };
     public Vector2 gridSize;
@@ -23,6 +23,8 @@ public class gridCellScript : MonoBehaviour
     bool coveredPrev = true;
 
     public Action GameOver;
+
+    public bool canClick = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
@@ -124,7 +126,7 @@ public class gridCellScript : MonoBehaviour
         }
     }
 
-    public void uncoverAllNearbyCells(int currentId)
+    public void uncoverAllNearbyCells(int currentId, bool forceCheckingAround = false)
     {
         gridCellScript currentScript = gridCellArray[currentId].GetComponent<gridCellScript>();
 
@@ -136,7 +138,15 @@ public class gridCellScript : MonoBehaviour
         currentScript.covered = false;
         // currentScript.changeCellDisplayState();
 
-        if (currentScript.value == 0)
+        if (currentScript.value == -1)
+        {
+            if (GameOver != null)
+            {
+                GameOver();
+            }
+        }
+
+        if (currentScript.value == 0 || forceCheckingAround)
         {
             List<GameObject> nearbyCells = getNearbyCells(currentId);
 
@@ -150,18 +160,15 @@ public class gridCellScript : MonoBehaviour
                 }
             }
         }
-
-        if (currentScript.value == -1)
-        {
-            if (GameOver != null)
-            {
-                GameOver();
-            }
-        }
     }
 
     void OnMouseOver()
     {
+        if (!canClick)
+        {
+            return;
+        }
+
         if (UnityEngine.Input.GetMouseButtonDown(0))
         {
             if (covered == true && !flagged)
@@ -173,14 +180,31 @@ public class gridCellScript : MonoBehaviour
         else if (UnityEngine.Input.GetMouseButtonDown(1))
         {
             flagged = !flagged;
-            // changeCellDisplayState();
+        }
+        else if (UnityEngine.Input.GetMouseButtonDown(2))
+        {
+            if(covered == false)
+            {
+                int currentId = gridCellArray.IndexOf(gameObject);
+                List<GameObject> nearbyCells = getNearbyCells(currentId);
+
+                int numFlagged = 0;
+
+                for(int i = 0; i < nearbyCells.Count; i++)
+                {
+                    numFlagged += nearbyCells[i].GetComponent<gridCellScript>().flagged ? 1 : 0;
+                }
+
+                if (numFlagged == value)
+                {
+                    uncoverAllNearbyCells(currentId, true);
+                }
+            }
         }
     }
 
     public void changeCellDisplayState()
     {
-        print("changed");
-
         if (!covered)
         {
             gameObject.GetComponent<SpriteRenderer>().color = uncoveredColor;

@@ -541,6 +541,7 @@ MonoBehaviour:
   grid: {fileID: 58697068}
   gridSize: {x: 64, y: 36}
   spacing: 0.25
+  borderSpacingRelative: 0.025
   bombRatio: 0.2
   gridCellArray: []
   generateCovered: 1
