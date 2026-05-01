@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gridcellscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\programowanie\\unity\\noweprojekty\\minesweeper\\assets\\script\\gridgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gridgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\programowanie\\unity\\noweprojekty\\minesweeper\\assets\\script\\minesweepermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\minesweepermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\programowanie\\unity\\noweprojekty\\minesweeper\\assets\\script\\gridgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gridgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,15 +26,16 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "minesweeperManager.cs",
               "DocumentMoniker": "D:\\Programowanie\\Unity\\NoweProjekty\\minesweeper\\Assets\\script\\minesweeperManager.cs",
               "RelativeDocumentMoniker": "Assets\\script\\minesweeperManager.cs",
               "ToolTip": "D:\\Programowanie\\Unity\\NoweProjekty\\minesweeper\\Assets\\script\\minesweeperManager.cs",
               "RelativeToolTip": "Assets\\script\\minesweeperManager.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwBcAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-25T19:51:12.436Z"
+              "WhenOpened": "2026-04-25T19:51:12.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -44,20 +45,20 @@
               "RelativeDocumentMoniker": "Assets\\script\\gridCellScript.cs",
               "ToolTip": "D:\\Programowanie\\Unity\\NoweProjekty\\minesweeper\\Assets\\script\\gridCellScript.cs",
               "RelativeToolTip": "Assets\\script\\gridCellScript.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAcwK8AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAmwM4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-21T19:51:48.648Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "gridGenerator.cs",
               "DocumentMoniker": "D:\\Programowanie\\Unity\\NoweProjekty\\minesweeper\\Assets\\script\\gridGenerator.cs",
               "RelativeDocumentMoniker": "Assets\\script\\gridGenerator.cs",
               "ToolTip": "D:\\Programowanie\\Unity\\NoweProjekty\\minesweeper\\Assets\\script\\gridGenerator.cs",
               "RelativeToolTip": "Assets\\script\\gridGenerator.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAwwIIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwB4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-21T18:54:22.466Z",
               "EditorCaption": ""
